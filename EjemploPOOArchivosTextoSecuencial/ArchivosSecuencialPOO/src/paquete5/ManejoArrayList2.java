@@ -61,5 +61,7 @@ public class ManejoArrayList2 {
             System.out.printf("%s - %s\n", profesores2.get(i).obtenerNombre(),
                     profesores2.get(i).obtenerTipo());
         }
+        
+        
     }
 }

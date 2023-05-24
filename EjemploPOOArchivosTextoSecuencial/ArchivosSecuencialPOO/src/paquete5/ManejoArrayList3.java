@@ -14,34 +14,38 @@ import paquete1.Profesor;
  * @author reroes
  */
 public class ManejoArrayList3 {
+
     public static void main(String[] args) {
-        
+
         Calificacion c1 = new Calificacion(10, "Base de Datos");
         Calificacion c2 = new Calificacion(9, "Matemáticas");
         Calificacion c3 = new Calificacion(7, "Lógica");
-        
+
         Profesor prof1 = new Profesor("Joseph Jimenez", "facturado");
         Profesor prof2 = new Profesor("David Jones", "nombramiento");
         Profesor prof3 = new Profesor("Norman Muñoz", "contrato");
-        
+
         c1.establecerProfesor(prof1);
         c2.establecerProfesor(prof2);
         c3.establecerProfesor(prof3);
-        
-        
+
         // ArrayList
-        ArrayList <Calificacion> calificaciones = new ArrayList<>();
+        ArrayList<Calificacion> calificaciones = new ArrayList<>();
         calificaciones.add(c1);
         calificaciones.add(c2);
         calificaciones.add(c3);
-        
-        for (int i = 0; i < calificaciones.size(); i++) {
-            System.out.printf("%s - %s - %.2f\n", 
-                    calificaciones.get(i).obtenerProfesor().obtenerNombre(), 
-                    calificaciones.get(i).obtenerNombreMateria(),
-                    calificaciones.get(i).obtenerNota());
+
+         double sumaNotas = 0;
+
+        for (Calificacion calificacion : calificaciones) {
+            sumaNotas = sumaNotas + calificacion.obtenerNota();
+            System.out.printf("%s - %s - %.2f\n",
+                    calificacion.obtenerProfesor().obtenerNombre(),
+                    calificacion.obtenerNombreMateria(),
+                    calificacion.obtenerNota());
         }
-        
-        
+
+        double promedioNotas = sumaNotas / calificaciones.size();
+        System.out.printf("Promedio de notas: %.2f\n", promedioNotas);
     }
 }
